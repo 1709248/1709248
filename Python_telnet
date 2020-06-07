@@ -1,0 +1,33 @@
+SID: 1709248 
+import getpass, sys, telnetlib
+	
+	#Router 1 Host 
+	Host = 172.12.1.1
+	
+	#Telnet login 
+	user = raw_input ("Enter Username: ")
+	password = getpass.getpass()
+	tn = telnetlib.Telnet(HOST) 
+	
+	#entering username 
+	tn.read-until ("Username:")
+	tn.write(User +"\n")
+	
+	#entering password 
+	if password: 
+		tn.raw_input ("Password")
+		tn.write (Password + "\n")
+		
+	#entering in configurations terminal 
+	tn.write ("config t\n")
+	
+	#Configuring OSPF
+	tn.write ("router OSPF 1")
+	tn.write ("network 192.16.1.0 255.255.255.252 area 0\n")
+	tn.write ("network 192.168.99.0 255.255.255.0 area 0\n")
+	tn.write ("network 192.168.21.0 255.255.255.0 area 0\n")
+	tn.write ("network 192.168.23.0 255.255.255.0 area 0\n")
+	
+	#Closing telnet session 
+	print tn.close()
+	
